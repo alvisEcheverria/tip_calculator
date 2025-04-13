@@ -1,7 +1,11 @@
 import { menuItems } from "./data/db";
 import { MenuItem } from "./components/MenuItem";
+import { useOrder } from "./hooks/useOrder";
+import { OrderContents } from "./components/OrderContents";
 
 function App() {
+
+  const { orders, addItem } = useOrder();
 
   return (
     <>
@@ -20,13 +24,21 @@ function App() {
                 <MenuItem 
                   key={item.id}
                   item={item}
+                  addItem={addItem}
                 />
               )
             )}
           </ul>
         </div>
-        <div>
-          <h2 className="text-4xl font-black">Consumo</h2>
+        <div className="border border-dashed border-slate-200 p-5 rounded-lg space-y-10">
+          {
+            orders.map((orderItem)=> (
+              <OrderContents
+                key={orderItem.id}
+                order={orderItem}
+              />
+            )
+          )}
         </div>
       </main>
     </>
