@@ -31,14 +31,9 @@ function App() {
           </ul>
         </div>
         <div className="border border-dashed border-slate-200 p-5 rounded-lg space-y-10">
-          {
-            orders.map((orderItem)=> (
-              <OrderContents
-                key={orderItem.id}
-                order={orderItem}
-              />
-            )
-          )}
+          <OrderContents
+            orders={orders}
+          />
         </div>
       </main>
     </>

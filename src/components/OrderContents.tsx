@@ -1,15 +1,32 @@
 import { OrderItem } from '../types'
 
 type OrderContentsProps = {
-    order: OrderItem;
+    orders: OrderItem[];
 }
 
-export const OrderContents = ({ order } : OrderContentsProps) => {
+export const OrderContents = ({ orders } : OrderContentsProps) => {
   return (
-    <li>
-        {order.name}
-        {order.price}
-        {order.quantity}
-    </li>
+    <>
+      <h2 className="text-4xl font-black">Consumo</h2>
+      <ul className='space-y-3 mt-5'>
+
+        {
+          orders.length === 0 ?
+            <p className='text-center'>La orden está vacia</p>
+            : (
+            orders.map((orderItem: OrderItem)=> (
+              <li key={orderItem.id}>
+                <p className='text-lg'>
+                  {orderItem.name} - {orderItem.price}
+                </p>
+                <p className='font-black'>
+                  Cantidad: {orderItem.quantity}
+                </p>
+              </li>
+            ))
+          )
+        }
+      </ul>
+    </>
   )
 }

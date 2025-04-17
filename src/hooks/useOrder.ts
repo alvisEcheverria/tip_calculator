@@ -19,8 +19,6 @@ export const useOrder = ()=> {
         };
     };
 
-    console.log(orders);
-
     return{
         orders,
         addItem,
