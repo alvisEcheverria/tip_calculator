@@ -19,8 +19,14 @@ export const useOrder = ()=> {
         };
     };
 
+    const removeItem = (itemId: Items["id"]): void => {
+        const updatedOrder = orders.filter(order => order.id !== itemId);
+        setOrder(updatedOrder);
+    }
+
     return{
         orders,
         addItem,
+        removeItem
     };
 };
