@@ -6,8 +6,6 @@ type MenuItemsProps = {
 }
 
 export const MenuItem = ({ item, addItem } : MenuItemsProps) => {
-
-
   return (
     <button className="w-full p-3 border-2 border-indigo-400 border-r-2 hover:bg-indigo-400 flex justify-between cursor-pointer"
       onClick={()=> addItem(item)}

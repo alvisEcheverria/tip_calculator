@@ -3,6 +3,7 @@ import type { Items, OrderItem } from "../types";
 
 export const useOrder = ()=> {
     const[ orders, setOrder ] = useState<OrderItem[]>([]);
+    const [ tip, setTip ] = useState(0);
 
     const addItem = (item: Items): void => {
         const newItem = {...item, quantity: 1};
@@ -24,9 +25,17 @@ export const useOrder = ()=> {
         setOrder(updatedOrder);
     }
 
+    const placeOrder = (): void => {
+        setOrder([]);
+        setTip(0);
+    }
+
     return{
         orders,
+        tip,
+        setTip,
         addItem,
-        removeItem
+        removeItem,
+        placeOrder
     };
 };
