@@ -29,7 +29,7 @@ function App() {
             )}
           </ul>
         </div>
-        <div className="border border-dashed border-slate-200 p-5 rounded-lg space-y-10">
+        <div className="border border-dashed border-slate-200 p-5 rounded-lg space-y-10 ">
           {
             orders.length ? (
               <>
