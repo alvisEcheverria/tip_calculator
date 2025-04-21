@@ -30,25 +30,32 @@ function App() {
           </ul>
         </div>
         <div className="border border-dashed border-slate-200 p-5 rounded-lg space-y-10">
-          <OrderContents
-            orders={orders}
-            removeItem={removeItem}
-          />
+          {
+            orders.length ? (
+              <>
+                <OrderContents
+                  orders={orders}
+                  removeItem={removeItem}
+                />
 
-          <TipPercentageForm
-            tip={tip}
-            setTip={setTip}
-          />
+                <TipPercentageForm
+                  tip={tip}
+                  setTip={setTip}
+                />
 
-          <OrdersTotal 
-            orders={orders}
-            tip={tip}
-            placeOrder={placeOrder}
-          />
+                <OrdersTotal 
+                  orders={orders}
+                  tip={tip}
+                  placeOrder={placeOrder}
+                />
+              </>
+            ) :
+              <p className='text-center'>La orden está vacia</p>
+          }
         </div>
       </main>
     </>
   )
-}
+};
 
 export default App;

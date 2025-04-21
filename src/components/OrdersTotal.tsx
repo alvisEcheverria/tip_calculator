@@ -8,7 +8,7 @@ type OrdersTotalProps = {
     placeOrder: ()=> void;
 }
 
-export const OrdersTotal = ({ orders, tip }: OrdersTotalProps) => {
+export const OrdersTotal = ({ orders, tip, placeOrder }: OrdersTotalProps) => {
 
     const subtotalAmount = useMemo(()=> orders.reduce((acc, el) => acc + (el.price * el.quantity) , 0), [orders]);
     const tipAmount = useCallback(()=> subtotalAmount * tip, [ tip, subtotalAmount ]);
@@ -33,10 +33,11 @@ export const OrdersTotal = ({ orders, tip }: OrdersTotalProps) => {
             </div>
             <button className="w-full bg-black p-3 uppercase 
                 disabled:opacity-5 text-white font-bold mt-10"
-                disabled={subtotalAmount === 0}>
+                disabled={subtotalAmount === 0}
+                onClick={placeOrder}>
                 guardar orden
             </button>
         </>
         
     )
-}
+};

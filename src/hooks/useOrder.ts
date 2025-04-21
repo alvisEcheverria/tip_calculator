@@ -23,12 +23,12 @@ export const useOrder = ()=> {
     const removeItem = (itemId: Items["id"]): void => {
         const updatedOrder = orders.filter(order => order.id !== itemId);
         setOrder(updatedOrder);
-    }
+    };
 
     const placeOrder = (): void => {
         setOrder([]);
         setTip(0);
-    }
+    };
 
     return{
         orders,

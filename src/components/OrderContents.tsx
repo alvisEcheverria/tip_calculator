@@ -11,11 +11,8 @@ export const OrderContents = ({ orders, removeItem } : OrderContentsProps) => {
     <>
       <h2 className="text-4xl font-black">Consumo</h2>
       <ul className='space-y-3 mt-5'>
-        {
-          orders.length === 0 ?
-            <p className='text-center'>La orden está vacia</p>
-            : (
-            orders.map((orderItem: OrderItem)=> (
+        { 
+          orders.map((orderItem: OrderItem)=> (
               <li className='flex justify-between items-center border-t border-gray-300 py-5 last-of-type:border-b' 
                 key={orderItem.id}>
                 <div>
@@ -32,8 +29,7 @@ export const OrderContents = ({ orders, removeItem } : OrderContentsProps) => {
                   X
                 </button>
               </li>
-            ))
-          )
+          ))
         }
       </ul>
     </>
